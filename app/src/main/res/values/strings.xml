@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">EncryptionPractice</string>
+    <string name="editText_string">Please enter your text here.</string>
+    <string name="encryptButton_text">Encrypt</string>
+    <string name="decryptButton_text">Decrypt</string>
+    <string name="secured_shared_preference">secured</string>
+    <string name="editText_id">please put an user id</string>
+</resources>
