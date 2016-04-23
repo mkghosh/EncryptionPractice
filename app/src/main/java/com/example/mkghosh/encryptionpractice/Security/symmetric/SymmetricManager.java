@@ -1,9 +1,10 @@
-package com.example.mkghosh.encryptionpractice.Security;
+package com.example.mkghosh.encryptionpractice.Security.symmetric;
 
 import android.content.Context;
 import android.util.Log;
 
-import com.example.mkghosh.encryptionpractice.MainActivity;
+import com.example.mkghosh.encryptionpractice.activity.MainActivity;
+import com.example.mkghosh.encryptionpractice.Security.utility.SecuredPrefManager;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;

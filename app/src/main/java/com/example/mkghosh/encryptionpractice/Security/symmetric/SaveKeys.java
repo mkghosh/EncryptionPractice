@@ -1,6 +1,9 @@
-package com.example.mkghosh.encryptionpractice.Security;
+package com.example.mkghosh.encryptionpractice.Security.symmetric;
 
 import android.content.Context;
+
+import com.example.mkghosh.encryptionpractice.Security.utility.OnContext;
+import com.example.mkghosh.encryptionpractice.Security.utility.SecuredPrefManager;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

@@ -1,4 +1,4 @@
-package com.example.mkghosh.encryptionpractice;
+package com.example.mkghosh.encryptionpractice.Security.asymmetric;
 
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyPair;

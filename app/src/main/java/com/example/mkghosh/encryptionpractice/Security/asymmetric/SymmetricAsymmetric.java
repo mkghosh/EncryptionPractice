@@ -1,11 +1,14 @@
-package com.example.mkghosh.encryptionpractice;
-
+package com.example.mkghosh.encryptionpractice.Security.asymmetric;
 
 import android.util.Base64;
 
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -16,7 +19,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
 
-public class SymmetricKey {
+public class SymmetricAsymmetric {
 
     public static void main(String[] args) throws Exception {
 
@@ -25,16 +28,35 @@ public class SymmetricKey {
         generator.init(128);
         SecretKey key = generator.generateKey();
         byte[] symmetricKey = key.getEncoded();
-
         System.out.println("key : " + symmetricKey);
 
-        //Encrypt Data
-        String encryptedData = encryptWithAESKey("asd", symmetricKey);
+        //Generate private key public key pair
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+        keyPairGenerator.initialize(1024);
+        KeyPair keyPair = keyPairGenerator.generateKeyPair();
+        PrivateKey privateKey = keyPair.getPrivate();
+        PublicKey publicKey = keyPair.getPublic();
 
+
+        //Encrypt Data by symmetric key
+        String encryptedData = encryptWithAESKey("My Secured Message", symmetricKey);
         System.out.println("Encrypted Data : " + encryptedData);
 
-        //Decrypt Data
-        System.out.println("Decrypted Data : " + decryptWithAESKey(encryptedData, symmetricKey));
+        //Encrypt symmetric key by public key
+        Cipher cipher = Cipher.getInstance("RSA");
+        cipher.init(Cipher.ENCRYPT_MODE, publicKey);
+        String encryptedkey = Base64.encodeToString(cipher.doFinal(symmetricKey), Base64.DEFAULT);
+
+        //Send message and key to other user having private key
+
+        //Decrypt symmetric Key by private key
+        Cipher dipher = Cipher.getInstance("RSA");
+
+        dipher.init(Cipher.DECRYPT_MODE, privateKey);
+        byte[] decryptedSymmetricKey = dipher.doFinal(Base64.decode(encryptedkey, Base64.DEFAULT));
+
+        //Decrypt encrypted Data by decrypted symmetric key
+        System.out.println("Decrypted Data : " + decryptWithAESKey(encryptedData, decryptedSymmetricKey));
 
     }
 
@@ -61,4 +83,6 @@ public class SymmetricKey {
         return new String(newData);
 
     }
+
+
 }

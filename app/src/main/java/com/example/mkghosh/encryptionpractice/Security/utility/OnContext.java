@@ -1,4 +1,4 @@
-package com.example.mkghosh.encryptionpractice.Security;
+package com.example.mkghosh.encryptionpractice.Security.utility;
 
 import android.content.Context;
 

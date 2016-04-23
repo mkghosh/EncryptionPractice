@@ -1,4 +1,4 @@
-package com.example.mkghosh.encryptionpractice;
+package com.example.mkghosh.encryptionpractice.activity;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -12,19 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
-import com.example.mkghosh.encryptionpractice.Security.SymmetricManager;
+import com.example.mkghosh.encryptionpractice.Security.symmetric.SymmetricManager;
 import com.example.w3e02.encryptionpractice.R;
-
-import java.security.InvalidAlgorithmParameterException;
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.security.SecureRandom;
-import java.security.spec.ECGenParameterSpec;
-import java.security.spec.ECParameterSpec;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 

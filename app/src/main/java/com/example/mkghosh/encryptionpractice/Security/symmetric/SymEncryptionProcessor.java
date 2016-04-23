@@ -1,4 +1,4 @@
-package com.example.mkghosh.encryptionpractice.Security;
+package com.example.mkghosh.encryptionpractice.Security.symmetric;
 
 
 import android.util.Base64;
