@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
-import com.example.mkghosh.encryptionpractice.Security.symmetric.SymmetricManager;
+import com.example.mkghosh.encryptionpractice.security.symmetric.SymmetricManager;
 import com.example.w3e02.encryptionpractice.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
